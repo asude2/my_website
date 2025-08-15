@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <header-one></header-one>
-    <section-one></section-one>
+  <div id="app">
+      <header-one  :isDark="isDark" @toggleTheme="toggleTheme"/>
+      <section-one  :isDark="isDark" @toggleTheme="toggleTheme"/>
   </div>
 </template>
 
@@ -12,11 +12,25 @@ import section from './components/section.vue'
 export default{
   data(){
     return{
+      isDark:false
     }
   },
   components:{
     "header-one":header,
-    "section-one":section
+    "section-one":section,
+  },
+  methods: {
+    toggleTheme() {
+      this.isDark = !this.isDark
+    }
   }
 }
 </script>
+
+
+
+<style>
+/* Global transition */
+
+
+</style>

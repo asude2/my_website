@@ -8,6 +8,10 @@
             <a href="#about">About</a> 
             <a href="#projects">My Projects</a>  
             <a href="#accounts">Social Media Accounts</a> 
+            <div class="mode-icons">
+                <i class="fa-regular fa-sun" @click="$emit('toggleTheme')" v-if="!isDark"></i>
+                <i class="fa-solid fa-moon" @click="$emit('toggleTheme')" v-if="isDark"></i>
+            </div>
         </div>
     </div>
     <div class="line"></div>
@@ -15,11 +19,7 @@
 
 <script>
 export default{
-    data(){
-        return{
-            
-        }
-    }
+    props:['isDark']
 }
 </script>
 
@@ -37,6 +37,7 @@ html{
     position: sticky;
     top: 0;
     z-index: 1000;
+    flex-wrap: wrap;
 }
 .sections{
     display: flex;
@@ -98,5 +99,10 @@ html{
 .line{
     border-bottom: 2px solid black;
 }
-
+.mode-icons{
+    font-size: large;
+    padding: 1.2rem;
+    width: 50px;
+    cursor: pointer;
+}
 </style>
